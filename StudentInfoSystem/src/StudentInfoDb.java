@@ -17,6 +17,7 @@ public class StudentInfoDb extends StudentInfoSystem{
 		db_pnum = pnum;
 	}
 	
+	
 	public boolean info_add(){
 		
 		// 학번이 동일한게 있거나 , 정보입력칸에 하나라도 입력하지 않는 경우 수행x 
@@ -46,6 +47,20 @@ public class StudentInfoDb extends StudentInfoSystem{
 		
 		return true;
 
+	}
+	
+	public boolean info_view(){
+		
+		//동일한 학번이 있는지
+		
+		try {
+			state.executeUpdate("view student_info(Id, Name, Department, Phone_num) values('"+db_id+"','"+db_name+"','"+db_depart+"','"+db_pnum+"')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return true;
 	}
 
 }

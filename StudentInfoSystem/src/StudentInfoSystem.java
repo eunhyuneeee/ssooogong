@@ -39,7 +39,7 @@ public class StudentInfoSystem extends JFrame implements ActionListener{
 		}			
 	}
 	private void init(){
-		
+			
 		JPanel top = new JPanel();
 		top.add(new JLabel("<STUDENT INFORMATION BOOK>"));
 		getContentPane().add("North", top);
@@ -127,8 +127,17 @@ public class StudentInfoSystem extends JFrame implements ActionListener{
 
 		}else if(c == delete){
 			
-		}else if( c == view){
+		}else if(c == view){
+		
+			result = db.info_view();
 			
+			if(result){
+				
+				clear();
+				display.append(" =============================================================" +"\n");
+				display.append(" \t     학생 정보가 검색되었습니다.\n ");
+				display.append(" ============================================================="+"\n");
+				}
 			}
 		}
 	
